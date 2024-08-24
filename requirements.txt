@@ -1,0 +1,6 @@
+Django
+pillow
+python-decouple
+drf-spectacular
+django-cors-headers==4.1.0
+djangorestframework==3.14.0
