@@ -49,7 +49,6 @@ Thumbs.db
 *.wmv
 
 # Local developement files
-README.md
 *.code-workspace
 *.log
 */media
