@@ -59,4 +59,3 @@ ngrok
 
 # Local Database
 *.sqlite3
-*/migrations
