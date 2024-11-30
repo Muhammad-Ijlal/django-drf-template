@@ -1,4 +1,4 @@
-from core.models import User
+from apps.core.models import User
 from rest_framework import serializers
 
 class UserSerializer(serializers.Serializer):

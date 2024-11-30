@@ -1,4 +1,4 @@
 Steps to make this project production ready.
 
 1. Setup .env file on the server with secure secret key
-2. Update manage.py to run production settings "os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proj.settings.production')"
+2. Update manage.py to run production settings "os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.production')"

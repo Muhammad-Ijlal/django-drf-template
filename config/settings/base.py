@@ -45,7 +45,7 @@ INSTALLED_APPS += [
 
 # Put new apps created by django-admin createnewapp
 INSTALLED_APPS += [
-    'core',
+    'apps.core',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'proj.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'proj.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # Loging
 # https://docs.djangoproject.com/en/3.1/topics/logging/
