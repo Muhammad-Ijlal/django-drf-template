@@ -1,6 +1,26 @@
-Django
-pillow
+# Common
+Django==5.0.4
+asgiref==3.8.1
+cryptography==42.0.8
+djangorestframework==3.15.1
+psycopg2==2.9.9
+django-cors-headers==4.3.1
+drf-spectacular==0.27.2
+Pillow==10.3.0
 python-decouple
-drf-spectacular
-django-cors-headers==4.1.0
-djangorestframework==3.14.0
+
+
+
+# Production
+gunicorn==22.0.0
+django_ses==4.0.0
+
+# Tests
+pytest==8.3.3
+pytest-django==4.8.0
+pytest-mock==3.14.0
+pytest-env==1.1.4
+
+# Development
+pre-commit==3.7.0
+PyYAML==6.0.1
