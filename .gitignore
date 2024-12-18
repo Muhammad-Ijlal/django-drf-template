@@ -59,3 +59,6 @@ ngrok
 
 # Local Database
 *.sqlite3
+
+# Virtual Environment
+venv/
