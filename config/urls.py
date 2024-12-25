@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 
@@ -21,26 +22,25 @@ from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
-    SpectacularSwaggerView
+    SpectacularSwaggerView,
 )
 
 
 urlpatterns = [
     # YOUR PATTERNS
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
-    path('api/swagger-docs/',
-         SpectacularSwaggerView.as_view(url_name='schema'),
-         name='swagger-docs'),
-
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
+    path(
+        "api/swagger-docs/",
+        SpectacularSwaggerView.as_view(url_name="schema"),
+        name="swagger-docs",
+    ),
     # Admin
-    path('admin/', admin.site.urls),
-
+    path("admin/", admin.site.urls),
     # Allauth
     path("accounts/", include("allauth.urls")),
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
-
     # API
-    path("api/", include("apps.core.api.urls")),
+    path("api/core/", include("apps.core.api.urls")),
 ]
