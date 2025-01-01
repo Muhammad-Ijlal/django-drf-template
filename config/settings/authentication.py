@@ -1,5 +1,6 @@
-from decouple import config
 from datetime import timedelta
+
+from decouple import config
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
@@ -23,7 +24,7 @@ SIMPLE_JWT = {
 }
 
 # Link to the custom user model
-AUTH_USER_MODEL = 'core.User'
+AUTH_USER_MODEL = "core.User"
 
 # Google provider configuration
 SOCIALACCOUNT_PROVIDERS = {
