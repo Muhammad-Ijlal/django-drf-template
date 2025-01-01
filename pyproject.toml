@@ -1,3 +1,32 @@
+[project]
+name = "template"
+description = "Basic template for a drf project"
+readme = "README.md"
+license = "To be defined"
+requires-python = ">=3.10"
+authors = [
+    { name = "Muhammad Ijlal" },
+]
+keywords = [
+    "drf",
+    "django",
+    "rest_apis",
+    "template",
+]
+
+[tool.mypy]
+files = "proj"
+pretty = true
+strict_optional = false
+install_types = true
+ignore_missing_imports = true
+non_interactive = true
+show_error_codes = true
+warn_unused_ignores = false
+
 [tool.black]
 line-length = 88
 force-exclude = "(.*\\/)?migrations\\/.*\\.py$"
+
+[tool.isort]
+profile = "black"
