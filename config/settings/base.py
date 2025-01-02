@@ -47,7 +47,6 @@ INSTALLED_APPS += [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     "rest_framework.authtoken",
-    "dj_rest_auth",
     "rest_framework_simplejwt",
 ]
 
@@ -151,13 +150,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Rest framework configuration
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
-    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "config.auth.jwt_auth.CustomJWTAuthentication",
+    ),
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
-        "rest_framework.permissions.IsAdminUser",
     ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 20,
 }
 
 # Setup metadat for API documentation
@@ -166,5 +166,15 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Your project description",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
-    # OTHER SETTINGS
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
+    "SERVE_AUTHENTICATION": None,
+    "SWAGGER_UI_SETTINGS": {
+        "deepLinking": True,
+        "persistAuthorization": True,
+    },
+    "REDOC_SETTINGS": {
+        "hideDownloadButton": True,
+        "expandResponses": "all",
+    },
+    "AUTHENTICATION_WHITELIST": ["config.auth.jwt_auth.CustomJWTAuthentication"],
 }

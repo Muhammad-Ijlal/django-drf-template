@@ -18,6 +18,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(_("active"), default=True)
     is_staff = models.BooleanField(blank=False)
     avatar = models.ImageField(upload_to="avatars/", null=True, blank=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)
 
     objects = UserManager()
 
