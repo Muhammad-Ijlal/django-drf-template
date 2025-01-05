@@ -1,9 +1,12 @@
 from .base import *
 from .base import config
 
-DEBUG = False
+DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(",")
+CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS").split(",")
+CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS").split(",")
+
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
