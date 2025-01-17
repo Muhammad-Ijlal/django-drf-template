@@ -150,14 +150,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Rest framework configuration
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "config.auth.jwt_auth.CustomJWTAuthentication",
-    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": ("config.auth.jwt_auth.CustomJWTAuthentication",),
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,
+    "EXCEPTION_HANDLER": "config.utils.exceptions.custom_exception_handler",
 }
 
 # Setup metadat for API documentation

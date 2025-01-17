@@ -1,6 +1,10 @@
+import logging
+
 from rest_framework import serializers
 
 from apps.core.models import User
+
+logger = logging.getLogger(__name__)
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -9,11 +13,6 @@ class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["email", "password", "first_name", "last_name", "username"]
-
-    def validate_email(self, value):
-        if User.objects.filter(email=value).exists():
-            raise serializers.ValidationError("This email is already in use.")
-        return value
 
     def create(self, validated_data):
         user = User.objects.create_user(
