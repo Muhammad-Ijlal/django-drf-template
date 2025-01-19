@@ -2,7 +2,7 @@
 FROM python:3.12.4-slim-bullseye
 
 # set work directory
-WORKDIR /app
+WORKDIR /
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
