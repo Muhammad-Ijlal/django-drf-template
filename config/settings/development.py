@@ -1,5 +1,6 @@
+from decouple import config
+
 from .base import *
-from .base import config
 
 DEBUG = True
 
@@ -14,3 +15,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "emails")

@@ -13,16 +13,17 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
-# Using python-decouple to read variables written in env
-# See https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
 from decouple import config
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+SECRET_KEY = config("DJANGO_SECRET_KEY")
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = config("DJANGO_SECRET_KEY")
-
 from .authentication import *
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 APPEND_SLASH = False
 DEFAULT_CONTENT_TYPE = "application/json"

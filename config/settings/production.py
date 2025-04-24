@@ -1,5 +1,6 @@
+from decouple import config
+
 from .base import *
-from .base import config
 
 DEBUG = config("DEBUG", default=False, cast=bool)
 
