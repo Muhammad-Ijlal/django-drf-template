@@ -1,0 +1,19 @@
+from django.urls import include, path
+
+SILKY_PYTHON_PROFILER = True
+SILKY_PYTHON_PROFILER_BINARY = True
+
+
+LOCAL_APPS = [
+    "silk",
+]
+
+LOCAL_MIDDLEWARE = [
+    "silk.middleware.SilkyMiddleware",
+]
+
+def get_local_urlpatterns():
+    """Return local URL patterns that should be added to the main URL configuration."""
+    return [
+        path("silk/", include("silk.urls", namespace="silk")),
+    ]

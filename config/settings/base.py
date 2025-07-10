@@ -56,6 +56,12 @@ INSTALLED_APPS += [
     "apps.core",
 ]
 
+# Local apps mainly profiling and debugging tools
+try:
+    INSTALLED_APPS += LOCAL_APPS
+except:
+    pass
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -67,6 +73,12 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
+
+try:
+    MIDDLEWARE += LOCAL_MIDDLEWARE
+except:
+    pass
+
 
 ROOT_URLCONF = "config.urls"
 

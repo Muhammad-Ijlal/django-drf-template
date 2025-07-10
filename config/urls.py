@@ -42,3 +42,10 @@ urlpatterns = [
     # API
     path("api/core/", include("apps.core.api.urls")),
 ]
+
+try:
+    from .settings.local_settings import get_local_urlpatterns
+
+    urlpatterns.extend(get_local_urlpatterns())
+except ImportError:
+    pass
