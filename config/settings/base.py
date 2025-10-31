@@ -100,32 +100,37 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-# Loging
-# https://docs.djangoproject.com/en/3.1/topics/logging/
+# Control format and level via env variables
+LOGGING_JSON = config("LOGGING_JSON", default=False, cast=bool)
+LOGGING_LEVEL = config("LOGGING_LEVEL", default="WARNING")
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
-        "verbose": {
+        "human": {
             "format": "{levelname} {asctime} {module} {message}",
-            "style": "{",
+        },
+        "json": {
+            "()": "pythonjsonlogger.json.JsonFormatter",
+            "fmt": "%(asctime)s %(levelname)s %(name)s %(message)s %(exc_info)s",
         },
     },
     "handlers": {
         "console": {
-            "level": "DEBUG",
+            "level": LOGGING_LEVEL,
             "class": "logging.StreamHandler",
-            "formatter": "verbose",
+            "formatter": "json" if LOGGING_JSON else "human",
         },
     },
     "loggers": {
         "django": {
             "handlers": ["console"],
-            "level": "INFO",
+            "level": LOGGING_LEVEL,
         },
-        "": {  # Global scope logger
+        "": {  # Root logger
             "handlers": ["console"],
-            "level": "INFO",
+            "level": LOGGING_LEVEL,
         },
     },
 }

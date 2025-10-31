@@ -24,3 +24,6 @@ pytest-env==1.1.4
 # Development
 pre-commit==3.7.0
 PyYAML==6.0.1
+
+# Logging
+python-json-logger==3.2.1
